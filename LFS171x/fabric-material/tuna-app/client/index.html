@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hyperledger Fabric Tuna Application</title>
+    <title>WineChain Application</title>
     <link rel="icon" href="favicon.png" type="image/gif">
 
     <!-- require jquery and bootstrap scripts -->
@@ -63,8 +63,7 @@
   </head>
   <body ng-app="application" ng-controller="appController">
     <header>
-      <div id="left_header">Hyperledger Fabric Tuna Application</div>
-      <i id="right_header">Example Blockchain Application for Introduction to Hyperledger Fabric LFS171x</i>
+      <div id="left_header">WineChain Application</div>
     </header>
 
     <div id="body">
@@ -79,8 +78,8 @@
           <th>ID</th>
           <th>Timestamp</th>
           <th>Holder</th>
-          <th>Catch Location <br>(Longitude, Latitude)</th>
-          <th>Vessel</th>
+          <th>Harvest Location <br>(Longitude, Latitude)</th>
+          <th>Wine Bottle ID</th>
         </tr>
 
         <tr ng-repeat="tuna in all_tuna">
@@ -93,8 +92,8 @@
       </table>
 
       <div class="form-group">
-        <label>Query a Specific Tuna Catch</label><br>
-        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid Tuna Id</h5>
+        <label>Query a Specific Wine Harvest</label><br>
+        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid Wine Item Id</h5>
         
         Enter a catch number: <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="tuna_id">
         <input id="querySubmit" type="submit" value="Query" class="btn btn-primary" ng-click="queryTuna()">
@@ -105,8 +104,8 @@
         <tr>
           <th>Timestamp</th>
           <th>Holder</th>
-          <th>Catch Location <br>(Longitude, Latitude)</th>
-          <th>Vessel</th>
+          <th>Harvest Location <br>(Longitude, Latitude)</th>
+          <th>Wine Bottle ID</th>
         </tr>
 
         <tr>
@@ -118,7 +117,7 @@
       </table>
 
       <div class="form-group">
-        <label>Create Tuna Record</label>
+        <label>Create Wine Record</label>
         <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_tuna}}</h5>
         <br>
         Enter catch id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="tuna.id">
@@ -131,10 +130,10 @@
       </div>
 
       <div class="form-group">
-        <label>Change Tuna Holder</label><br>
+        <label>Change Wine Holder</label><br>
         <h5 style="color:green;margin-bottom:2%" id="success_holder">Success! Tx ID: {{change_holder}}</h5>
-        <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Tuna Id</h5>
-        Enter a catch id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1" ng-model="holder.id">
+        <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Wine Item Id</h5>
+        Enter a wine id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1" ng-model="holder.id">
         Enter name of new holder: <input class="form-control" name="assetSelect" placeholder="Ex: Barry" ng-model="holder.name">
         <input id="transferSubmit" type="submit" value="Change" class="btn btn-primary" ng-click="changeHolder()">
       </div>
