@@ -2,159 +2,201 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>WineChain Application</title>
     <link rel="icon" href="favicon.png" type="image/gif">
 
     <!-- require jquery and bootstrap scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- adding style here -->
     <style type="text/css">
-      header{
-        background-color: lightgray;
-        font-size:20px;
-        padding:15px;
-      }
-      header, .form-group{
-        margin-bottom: 3%;
-      }
-      .form-group{
-        width:50%;
-      }
-      #body{
-        margin-left:3%;
-        margin-right:3%;
-      }
-      .form-control{
-        margin: 8px;
-      }
-      #right_header{
-        width:20%;
-        font-size:15px;
-        margin-right:0px;
-      }
-      #left_header{
-        margin-left:0;
-        width:40%;
-        display:inline-block;
-      } 
-      #id {
-        width:49%;
-        display: inline-block;
-      }
-      table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-      }
-      td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-      }
-      tr:nth-child(even) {
-          background-color: #dddddd;
-      }
+        header {
+            background-color: lightgray;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        header, .form-group {
+            margin-bottom: 3%;
+        }
+
+        .form-group {
+            width: 50%;
+        }
+
+        #body {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+        .form-control {
+            margin: 8px;
+        }
+
+        #right_header {
+            width: 20%;
+            font-size: 15px;
+            margin-right: 0px;
+        }
+
+        #left_header {
+            margin-left: 0;
+            width: 40%;
+            display: inline-block;
+        }
+
+        #id {
+            width: 49%;
+            display: inline-block;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
-  </head>
-  <body ng-app="application" ng-controller="appController">
-    <header>
-      <div id="left_header">WineChain Application</div>
-    </header>
+</head>
+<body ng-app="application" ng-controller="appController">
+<header>
+    <div id="left_header">WineChain Application</div>
+</header>
 
-    <div id="body">
-      <div id="accordion">
+<div id="body">
+    <div id="accordion">
         <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Query all wine bottles
-              </button>
-            </h5>
-          </div>
-
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              <label>Query All Wine Bottles</label>
-              <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
-
-              <table id="all_wine" class="table" align="center">
-
-                <tr>
-                  <th>ID</th>
-                  <th>Timestamp</th>
-                  <th>Holder</th>
-                  <th>Harvest Location <br>(Longitude, Latitude)</th>
-                  <th>Wine Bottle ID</th>
-                </tr>
-
-                <tr ng-repeat="wine in all_wine">
-                  <td>{{wine.Key}}</td>
-                  <td>{{wine.timestamp}}</td>
-                  <td>{{wine.holder}}</td>
-                  <td>{{wine.location}}</td>
-                  <td>{{wine.vessel}}</td>
-                </tr>
-              </table>
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        Query all wine bottles
+                    </button>
+                </h5>
             </div>
-          </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <label>Query All Wine Bottles</label>
+                    <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary"
+                              ng-click="queryAllWine()"></p>
+
+                    <table id="all_wine" class="table" align="center">
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Timestamp</th>
+                            <th>Holder</th>
+                            <th>Harvest Location <br>(Longitude, Latitude)</th>
+                            <th>Wine Bottle ID</th>
+                        </tr>
+
+                        <tr ng-repeat="wine in all_wine">
+                            <td>{{wine.Key}}</td>
+                            <td>{{wine.timestamp}}</td>
+                            <td>{{wine.holder}}</td>
+                            <td>{{wine.location}}</td>
+                            <td>{{wine.vessel}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div class="form-group">
-        <label>Query a Specific Wine Harvest</label><br>
-        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid wine harvest id</h5>
-        
-        Enter a harvest number: <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="wine_id">
-        <input id="querySubmit" type="submit" value="Query" class="btn btn-primary" ng-click="queryWine()">
-      </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseTwo">
+                    Query a specific harvest
+                </button>
+            </h5>
+        </div>
 
-      <table id="query_wine" class="table" align="center">
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div class="form-group">
+                    <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid wine harvest
+                        id</h5>
 
-        <tr>
-          <th>Timestamp</th>
-          <th>Holder</th>
-          <th>Harvest Location <br>(Longitude, Latitude)</th>
-          <th>Wine Bottle ID</th>
-        </tr>
+                    <div class="row"> Enter a harvest number: <input id="createName" class="form-control" type="text"
+                                                                     placeholder="Ex: 3"
+                                                                     ng-model="wine_id">
+                        <input id="querySubmit" type="submit" value="Query" class="btn btn-primary"
+                               ng-click="queryWine()"></div>
+                </div>
 
-        <tr>
-          <td>{{query_wine.timestamp}}</td>
-          <td>{{query_wine.holder}}</td>
-          <td>{{query_wine.location}}</td>
-          <td>{{query_wine.vessel}}</td>
-        </tr>
-      </table>
+                <table id="query_wine" class="table" align="center">
 
-      <div class="form-group">
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Holder</th>
+                        <th>Harvest Location <br>(Longitude, Latitude)</th>
+                        <th>Wine Bottle ID</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{query_wine.timestamp}}</td>
+                        <td>{{query_wine.holder}}</td>
+                        <td>{{query_wine.location}}</td>
+                        <td>{{query_wine.vessel}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
         <label>Create Wine Record</label>
         <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_wine}}</h5>
         <br>
         Enter harvest id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="wine.id">
         Enter wine bottle id: <input class="form-control" type="text" placeholder="Ex: 0239L" ng-model="wine.vessel">
-        Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012" ng-model="wine.longitude"> 
-        Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405" ng-model="wine.latitude">
+        Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012"
+                                ng-model="wine.longitude">
+        Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405"
+                               ng-model="wine.latitude">
         Enter timestamp: <input class="form-control" type="text" placeholder="Ex: 4982342301" ng-model="wine.timestamp">
         Enter name of holder: <input class="form-control" type="text" placeholder="Ex: Hansel" ng-model="wine.holder">
-        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordWine()"> 
-      </div>
+        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordWine()">
+    </div>
 
-      <div class="form-group">
+    <div class="form-group">
         <label>Change Wine Holder</label><br>
         <h5 style="color:green;margin-bottom:2%" id="success_holder">Success! Tx ID: {{change_holder}}</h5>
         <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Wine Item Id</h5>
-        Enter a wine id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1" ng-model="holder.id">
-        Enter name of new holder: <input class="form-control" name="assetSelect" placeholder="Ex: Barry" ng-model="holder.name">
+        Enter a wine id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1"
+                                                 ng-model="holder.id">
+        Enter name of new holder: <input class="form-control" name="assetSelect" placeholder="Ex: Barry"
+                                         ng-model="holder.name">
         <input id="transferSubmit" type="submit" value="Change" class="btn btn-primary" ng-click="changeHolder()">
-      </div>
-
     </div>
-  </body>
-    <!-- requiring the angular page -->
-    <script type="text/javascript" src="app.js"> </script>
+
+</div>
+</body>
+<!-- requiring the angular page -->
+<script type="text/javascript" src="app.js"></script>
 </html>
