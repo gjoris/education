@@ -69,10 +69,10 @@
     <div id="body">
       <div class="form-group">
         <label>Query All Wine Bottles</label>
-        <p><input id="queryAllTuna" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
+        <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
       </div>
  
-      <table id="all_tuna" class="table" align="center">
+      <table id="all_wine" class="table" align="center">
 
         <tr>
           <th>ID</th>
@@ -82,24 +82,24 @@
           <th>Wine Bottle ID</th>
         </tr>
 
-        <tr ng-repeat="tuna in all_tuna">
-          <td>{{tuna.Key}}</td>
-          <td>{{tuna.timestamp}}</td>
-          <td>{{tuna.holder}}</td>
-          <td>{{tuna.location}}</td>
-          <td>{{tuna.vessel}}</td>
+        <tr ng-repeat="wine in all_wine">
+          <td>{{wine.Key}}</td>
+          <td>{{wine.timestamp}}</td>
+          <td>{{wine.holder}}</td>
+          <td>{{wine.location}}</td>
+          <td>{{wine.vessel}}</td>
         </tr>
       </table>
 
       <div class="form-group">
         <label>Query a Specific Wine Harvest</label><br>
-        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid Wine Item Id</h5>
+        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid wine harvest id</h5>
         
-        Enter a catch number: <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="tuna_id">
-        <input id="querySubmit" type="submit" value="Query" class="btn btn-primary" ng-click="queryTuna()">
+        Enter a harvest number: <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="wine_id">
+        <input id="querySubmit" type="submit" value="Query" class="btn btn-primary" ng-click="queryWine()">
       </div>
 
-      <table id="query_tuna" class="table" align="center">
+      <table id="query_wine" class="table" align="center">
 
         <tr>
           <th>Timestamp</th>
@@ -109,24 +109,24 @@
         </tr>
 
         <tr>
-          <td>{{query_tuna.timestamp}}</td>
-          <td>{{query_tuna.holder}}</td>
-          <td>{{query_tuna.location}}</td>
-          <td>{{query_tuna.vessel}}</td>
+          <td>{{query_wine.timestamp}}</td>
+          <td>{{query_wine.holder}}</td>
+          <td>{{query_wine.location}}</td>
+          <td>{{query_wine.vessel}}</td>
         </tr>
       </table>
 
       <div class="form-group">
         <label>Create Wine Record</label>
-        <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_tuna}}</h5>
+        <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_wine}}</h5>
         <br>
-        Enter catch id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="tuna.id">
-        Enter name of vessel: <input class="form-control" type="text" placeholder="Ex: 0239L" ng-model="tuna.vessel">
-        Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012" ng-model="tuna.longitude"> 
-        Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405" ng-model="tuna.latitude">
-        Enter timestamp: <input class="form-control" type="text" placeholder="Ex: 4982342301" ng-model="tuna.timestamp">
-        Enter name of holder: <input class="form-control" type="text" placeholder="Ex: Hansel" ng-model="tuna.holder">
-        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordTuna()"> 
+        Enter harvest id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="wine.id">
+        Enter wine bottle id: <input class="form-control" type="text" placeholder="Ex: 0239L" ng-model="wine.vessel">
+        Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012" ng-model="wine.longitude"> 
+        Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405" ng-model="wine.latitude">
+        Enter timestamp: <input class="form-control" type="text" placeholder="Ex: 4982342301" ng-model="wine.timestamp">
+        Enter name of holder: <input class="form-control" type="text" placeholder="Ex: Hansel" ng-model="wine.holder">
+        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordWine()"> 
       </div>
 
       <div class="form-group">

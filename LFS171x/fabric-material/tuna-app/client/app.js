@@ -24,18 +24,18 @@ app.controller('appController', function($scope, appFactory){
 			array.sort(function(a, b) {
 			    return parseFloat(a.Key) - parseFloat(b.Key);
 			});
-			$scope.all_tuna = array;
+			$scope.all_wine = array;
 		});
 	}
 
-	$scope.queryTuna = function(){
+	$scope.queryWine = function(){
 
-		var id = $scope.tuna_id;
+		var id = $scope.wine_id;
 
-		appFactory.queryTuna(id, function(data){
-			$scope.query_tuna = data;
+		appFactory.queryWine(id, function(data){
+			$scope.query_wine = data;
 
-			if ($scope.query_tuna == "Could not locate tuna"){
+			if ($scope.query_wine == "Could not locate wine"){
 				console.log()
 				$("#error_query").show();
 			} else{
@@ -44,10 +44,10 @@ app.controller('appController', function($scope, appFactory){
 		});
 	}
 
-	$scope.recordTuna = function(){
+	$scope.recordWine = function(){
 
-		appFactory.recordTuna($scope.tuna, function(data){
-			$scope.create_tuna = data;
+		appFactory.recordWine($scope.wine, function(data){
+			$scope.create_wine = data;
 			$("#success_create").show();
 		});
 	}
@@ -56,7 +56,7 @@ app.controller('appController', function($scope, appFactory){
 
 		appFactory.changeHolder($scope.holder, function(data){
 			$scope.change_holder = data;
-			if ($scope.change_holder == "Error: no tuna catch found"){
+			if ($scope.change_holder == "Error: no wine harvest found"){
 				$("#error_holder").show();
 				$("#success_holder").hide();
 			} else{
@@ -75,24 +75,24 @@ app.factory('appFactory', function($http){
 
     factory.queryAllWine = function(callback){
 
-    	$http.get('/get_all_tuna/').success(function(output){
+    	$http.get('/get_all_wine/').success(function(output){
 			callback(output)
 		});
 	}
 
-	factory.queryTuna = function(id, callback){
-    	$http.get('/get_tuna/'+id).success(function(output){
+	factory.queryWine = function(id, callback){
+    	$http.get('/get_wine/'+id).success(function(output){
 			callback(output)
 		});
 	}
 
-	factory.recordTuna = function(data, callback){
+	factory.recordWine = function(data, callback){
 
 		data.location = data.longitude + ", "+ data.latitude;
 
-		var tuna = data.id + "-" + data.location + "-" + data.timestamp + "-" + data.holder + "-" + data.vessel;
+		var wine = data.id + "-" + data.location + "-" + data.timestamp + "-" + data.holder + "-" + data.vessel;
 
-    	$http.get('/add_tuna/'+tuna).success(function(output){
+    	$http.get('/add_wine/'+wine).success(function(output){
 			callback(output)
 		});
 	}
