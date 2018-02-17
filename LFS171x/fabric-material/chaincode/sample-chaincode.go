@@ -23,7 +23,7 @@ type SampleChaincode struct {
 
 // Init is called during chaincode instantiation to initialize
 // data. We'll be adding more in this function later on.
-func (t *SampleChaincode) Init(stub shim.ChaincodeStubInterface) peer.Response {
+func (t *SampleChaincode) Init(stub shim.ChaincodegoStubInterface) peer.Response {
     // Get the args from the transaction proposal
     args := stub.GetStringArgs()
     if len(args) != 2 {
