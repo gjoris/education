@@ -128,7 +128,8 @@
     <div class="card">
         <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true"
                         aria-controls="collapseTwo">
                     Query a specific harvest
                 </button>
@@ -171,7 +172,8 @@
     <div class="card">
         <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="true"
                         aria-controls="collapseThree">
                     Create wine record
                 </button>
@@ -179,34 +181,53 @@
         </div>
 
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body"></div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Create Wine Record</label>
+                    <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_wine}}</h5>
+                    <br>
+                    Enter harvest id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="wine.id">
+                    Enter wine bottle id: <input class="form-control" type="text" placeholder="Ex: 0239L"
+                                                 ng-model="wine.vessel">
+                    Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012"
+                                            ng-model="wine.longitude">
+                    Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405"
+                                           ng-model="wine.latitude">
+                    Enter timestamp: <input class="form-control" type="text" placeholder="Ex: 4982342301"
+                                            ng-model="wine.timestamp">
+                    Enter name of holder: <input class="form-control" type="text" placeholder="Ex: Hansel"
+                                                 ng-model="wine.holder">
+                    <input id="createSubmit" type="submit" value="Create" class="btn btn-primary"
+                           ng-click="recordWine()">
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <label>Create Wine Record</label>
-        <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_wine}}</h5>
-        <br>
-        Enter harvest id: <input class="form-control" type="text" placeholder="Ex: 11" ng-model="wine.id">
-        Enter wine bottle id: <input class="form-control" type="text" placeholder="Ex: 0239L" ng-model="wine.vessel">
-        Enter longitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 28.012"
-                                ng-model="wine.longitude">
-        Enter latitude: <input id="createName" class="form-control" type="text" placeholder="Ex: 150.405"
-                               ng-model="wine.latitude">
-        Enter timestamp: <input class="form-control" type="text" placeholder="Ex: 4982342301" ng-model="wine.timestamp">
-        Enter name of holder: <input class="form-control" type="text" placeholder="Ex: Hansel" ng-model="wine.holder">
-        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordWine()">
-    </div>
+    <div class="card">
+        <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                        aria-expanded="true"
+                        aria-controls="collapseFour">
+                    Change wine holder
+                </button>
+            </h5>
+        </div>
 
-    <div class="form-group">
-        <label>Change Wine Holder</label><br>
-        <h5 style="color:green;margin-bottom:2%" id="success_holder">Success! Tx ID: {{change_holder}}</h5>
-        <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Wine Item Id</h5>
-        Enter a wine id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1"
-                                                 ng-model="holder.id">
-        Enter name of new holder: <input class="form-control" name="assetSelect" placeholder="Ex: Barry"
-                                         ng-model="holder.name">
-        <input id="transferSubmit" type="submit" value="Change" class="btn btn-primary" ng-click="changeHolder()">
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+                <div class="form-group">
+                    <h5 style="color:green;margin-bottom:2%" id="success_holder">Success! Tx ID: {{change_holder}}</h5>
+                    <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Wine Item Id</h5>
+                    Enter a wine id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1"
+                                                             ng-model="holder.id">
+                    Enter name of new holder: <input class="form-control" name="assetSelect" placeholder="Ex: Barry"
+                                                     ng-model="holder.name">
+                    <input id="transferSubmit" type="submit" value="Change" class="btn btn-primary" ng-click="changeHolder()">
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
