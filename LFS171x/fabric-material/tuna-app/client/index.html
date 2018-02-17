@@ -128,14 +128,14 @@
     <div class="card">
         <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                         aria-controls="collapseTwo">
                     Query a specific harvest
                 </button>
             </h5>
         </div>
 
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
                 <div class="form-group">
                     <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid wine harvest
@@ -168,7 +168,20 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                        aria-controls="collapseThree">
+                    Create wine record
+                </button>
+            </h5>
+        </div>
 
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body"></div>
+        </div>
+    </div>
 
     <div class="form-group">
         <label>Create Wine Record</label>
