@@ -61,7 +61,7 @@ return{
 		    const request = {
 		        chaincodeId: 'tuna-app',
 		        txId: tx_id,
-		        fcn: 'queryAllWine',
+		        fcn: 'queryAllTuna',
 		        args: ['']
 		    };
 
