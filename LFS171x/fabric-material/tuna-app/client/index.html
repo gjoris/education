@@ -67,34 +67,43 @@
     </header>
 
     <div id="body">
-      <p>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAllWine" aria-expanded="false" aria-controls="collapseAllWine">
-          Button with data-target
-        </button>
-      </p>
-      <div class="collapse form-group" id="collapseAllWine">
-        <label>Query All Wine Bottles</label>
-        <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Query all wine bottles
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <label>Query All Wine Bottles</label>
+              <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
+
+              <table id="all_wine" class="table" align="center">
+
+                <tr>
+                  <th>ID</th>
+                  <th>Timestamp</th>
+                  <th>Holder</th>
+                  <th>Harvest Location <br>(Longitude, Latitude)</th>
+                  <th>Wine Bottle ID</th>
+                </tr>
+
+                <tr ng-repeat="wine in all_wine">
+                  <td>{{wine.Key}}</td>
+                  <td>{{wine.timestamp}}</td>
+                  <td>{{wine.holder}}</td>
+                  <td>{{wine.location}}</td>
+                  <td>{{wine.vessel}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
- 
-      <table id="all_wine" class="table" align="center">
-
-        <tr>
-          <th>ID</th>
-          <th>Timestamp</th>
-          <th>Holder</th>
-          <th>Harvest Location <br>(Longitude, Latitude)</th>
-          <th>Wine Bottle ID</th>
-        </tr>
-
-        <tr ng-repeat="wine in all_wine">
-          <td>{{wine.Key}}</td>
-          <td>{{wine.timestamp}}</td>
-          <td>{{wine.holder}}</td>
-          <td>{{wine.location}}</td>
-          <td>{{wine.vessel}}</td>
-        </tr>
-      </table>
 
       <div class="form-group">
         <label>Query a Specific Wine Harvest</label><br>
