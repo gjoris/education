@@ -67,7 +67,12 @@
     </header>
 
     <div id="body">
-      <div class="form-group">
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAllWine" aria-expanded="false" aria-controls="collapseAllWine">
+          Button with data-target
+        </button>
+      </p>
+      <div class="collapse form-group" id="collapseAllWine">
         <label>Query All Wine Bottles</label>
         <p><input id="queryAllWine" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllWine()"></p>
       </div>
