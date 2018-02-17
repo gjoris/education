@@ -12,9 +12,9 @@ app.controller('appController', function($scope, appFactory){
 	$("#error_holder").hide();
 	$("#error_query").hide();
 	
-	$scope.queryAllTuna = function(){
+	$scope.queryAllWine = function(){
 
-		appFactory.queryAllTuna(function(data){
+		appFactory.queryAllWine(function(data){
 			var array = [];
 			for (var i = 0; i < data.length; i++){
 				parseInt(data[i].Key);
@@ -73,7 +73,7 @@ app.factory('appFactory', function($http){
 	
 	var factory = {};
 
-    factory.queryAllTuna = function(callback){
+    factory.queryAllWine = function(callback){
 
     	$http.get('/get_all_tuna/').success(function(output){
 			callback(output)

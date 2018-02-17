@@ -57,11 +57,11 @@ return{
 		        throw new Error('Failed to get user1.... run registerUser.js');
 		    }
 
-		    // queryAllTuna - requires no arguments , ex: args: [''],
+		    // queryAllWine - requires no arguments , ex: args: [''],
 		    const request = {
 		        chaincodeId: 'tuna-app',
 		        txId: tx_id,
-		        fcn: 'queryAllTuna',
+		        fcn: 'queryAllWine',
 		        args: ['']
 		    };
 
